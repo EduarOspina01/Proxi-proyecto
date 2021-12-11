@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: api_bog
+        uri: http://localhost:2000/        
+        predicates:
+        - Path=/usuarios_bog/**,/clientes_bog/**,/proveedores_bog/**,/productos_bog/**,/ventas_bog/**,/detalle_ventas_bog/**
+      - id: api_cal
+        uri: http://localhost:3000/        
+        predicates:
+        - Path=/usuarios_cal/**,/clientes_cal/**,/proveedores_cal/**,/productos_cal/**,/ventas_cal/**,/detalle_ventas_cal/**
+      - id: api_med
+        uri: http://localhost:4000/        
+        predicates:
+        - Path=/usuarios_med/**,/clientes_med/**,/proveedores_med/**,/productos_med/**,/ventas_med/**,/detalle_ventas_med/**
+
